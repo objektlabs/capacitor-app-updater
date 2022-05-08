@@ -1,33 +1,47 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+# Publish the package to NPM and version bump each time a new release is published on Github.
 
 name: Publish Package to NPM
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
-  build:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
+      # Setup the build server.
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+
+      # Configure the automation bot details.
+      - run: git config --global user.name "Publish Bot"
+      - run: git config --global user.email "noreply@objektlabs.io"
+
+      # Install package dependencies.
       - run: npm ci
-      - run: npm publish
+
+      # Build the package.
+      #- run: npm run build
+
+      # Ensure all tests pass.
+      - run: npm run test
+
+      # Generate documentation.
+      - run: npm run docs
+
+      # Update package version number to release tag name.
+      - run: npm version ${{ github.event.release.tag_name }}
+
+      # Publish package to NPM
+      - run: npm publish --tag ${{ github.event.release.target_commitish }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      # Push documentation and version number changes back into repo.
+      - run: git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
