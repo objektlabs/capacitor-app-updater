@@ -50,7 +50,7 @@ export class AppUpdater {
 	 * Note: this function triggers a browser reload if the app was updated successfully to point to the new release.
 	 *  
 	 * @param {string} webServerURL - The URL of the online web server.
-	 * @param {number} [checkDelay=1000*60*60] - The amount of time to allow between update checks. Defaults to 60 minutes.
+	 * @param {number} [checkDelay=3600000] - The amount of time to allow between update checks. Defaults to 60 minutes.
 	 * 
 	 * @returns {boolean} True, if the app was updated, otherwise false.
 	 */
@@ -184,6 +184,8 @@ export class AppUpdater {
 /**
  * Get meta data for the currently installed app release.
  * 
+ * @private
+ * 
  * @returns {object} The installed release details.
  */
 async function getCurrentRelease() {
@@ -229,6 +231,8 @@ async function getCurrentRelease() {
 
 /**
  * Builds an initial release from the bundled app content.
+ * 
+ * @private
  * 
  * @throws If the release could not be built from the app bundle.
  * 
@@ -305,6 +309,8 @@ async function buildReleaseFromBundle() {
 /**
  * Set the meta data for the currently installed app release.
  * 
+ * @private
+ * 
  * @param {string} releaseName - The name to the new release.
  * @param {Date} timestamp - The timestamp on which the app was updated.
  * 
@@ -329,6 +335,8 @@ async function setCurrentRelease(releaseName, timestamp = new Date()) {
 
 /**
  * Deletes all old release directories from the app container.
+ * 
+ * @private
  * 
  * @param {string} activeReleaseName - The active release not to delete.
  * 
@@ -363,6 +371,8 @@ async function deleteOldReleases(activeReleaseName) {
 
 /**
  * Activates a downloaded app release package.
+ * 
+ * @private
  * 
  * @param {string} releaseName - The name to the new release.
  * 
@@ -399,6 +409,8 @@ async function activateRelease(releaseName) {
 /**
  * Downloads a checksum for a given web app.
  * 
+ * @private
+ * 
  * @param {string} url - The url to the web app.
  * 
  * @returns {Promise<Checksum>} The web app checksum data.
@@ -428,6 +440,8 @@ async function getServerChecksum(url) {
 /**
  * Copies a file from a previous release to a new release.
  * 
+ * @private
+ * 
  * @param {string} fromPath - The path of the file to copy.
  * @param {string} toPath - The path to copy the file to.
  * @param {Directory} directory - The base directory to work in.
@@ -449,6 +463,8 @@ async function copyFromPreviousRelease(fromPath, toPath, directory) {
 
 /**
  * Downloads a file from the app web server to a given directory.
+ * 
+ * @private
  * 
  * @param {string} url - The URL of the file to download.
  * @param {string} path - The path to save the file to.
@@ -474,6 +490,8 @@ async function downloadFileFromWebServer(url, path, directory) {
 
 /**
  * Downloads a file from app bundle (localhost) to a given directory.
+ * 
+ * @private
  * 
  * @param {string} url - The URL of the file to download.
  * @param {string} path - The path to save the file to.
@@ -581,6 +599,8 @@ async function downloadFileFromAppBundle(url, path, directory) {
 /**
  * Creates a new direcory, ingoring warnings in case it already exists.
  * 
+ * @private
+ * 
  * @param {string} path - The path of the directory to create.
  * @param {Directory} directory - The base directory to work in.
  * 
@@ -609,6 +629,8 @@ async function createDir(path, directory) {
 
 /**
  * Deletes a new direcory, ingoring warnings in case it has already been removed.
+ * 
+ * @private
  * 
  * @param {string} path - The path of the directory to remove.
  * @param {Directory} directory - The base directory to work in.

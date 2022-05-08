@@ -20,8 +20,9 @@
 	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img
 			src="https://img.shields.io/npm/v/@objekt/capacitor-app-updater?style=flat-square" /></a>
 	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+	<a href="#contributors-"><img
+			src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
+	<!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
 ## Introduction
@@ -124,25 +125,13 @@ individual file in the build.
 
 ## API Reference
 
-### AppUpdater
-CapacitorJS plugin to update the web contents of an app from a remote content server.
-
-**Kind**: global class  
-<a name="AppUpdater.sync"></a>
-
-### AppUpdater.sync(webServerURL, [checkDelay]) ⇒ <code>boolean</code>
-Syncs the online web app to the native app shell.
-
-Note: this function triggers a browser reload if the app was updated successfully to point to the new release.
-
-**Kind**: static method of [<code>AppUpdater</code>](#AppUpdater)  
-**Returns**: <code>boolean</code> - True, if the app was updated, otherwise false.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| webServerURL | <code>string</code> |  | The URL of the online web server. |
-| [checkDelay] | <code>number</code> | <code>3600000</code> | The amount of time to allow between update checks. Defaults to 60 minutes. |
-
+{{#classes}}
+### {{name}}
+{{>body~}}
+{{>member-index~}}
+{{>separator~}}
+{{>members~}}
+{{/classes}}
 
 * * *
 
@@ -154,9 +143,15 @@ Contributions of any kind welcome! ([emoji key](https://allcontributors.org/docs
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://github.com/jn42lm1"><img src="https://avatars2.githubusercontent.com/u/54233338?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jn42lm1</b></sub></a><br /><a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Documentation">📖</a> <a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Code">💻</a></td>
-  </tr>
+	<tr>
+		<td align="center"><a href="https://github.com/jn42lm1"><img
+					src="https://avatars2.githubusercontent.com/u/54233338?v=4?s=100" width="100px;"
+					alt="" /><br /><sub><b>jn42lm1</b></sub></a><br /><a
+				href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1"
+				title="Documentation">📖</a> <a
+				href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Code">💻</a>
+		</td>
+	</tr>
 </table>
 
 <!-- markdownlint-restore -->

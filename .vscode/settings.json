@@ -27,5 +27,7 @@
 	// Defines space handling after function keyword for anonymous functions.
 	"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
 	// Prevent files from staying open if just clicking on them to preview.
-	"workbench.editor.enablePreview": true
+	"workbench.editor.enablePreview": true,
+	// Enable/disable default HTML formatter.
+	"html.format.enable": false,
 }
