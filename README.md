@@ -1,20 +1,17 @@
-<p align="center"><br><img
-		src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png"
-		width="128" height="128" /></p>
+<p style="text-align: center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128"/></p>
 
-<h3 align="center">App Updater</h3>
-<p align="center"><strong><code>@objekt/capacitor-app-updater</code></strong></p>
-<p align="center">
-	CapacitorJS plugin to update the web contents of an app from a remote content server.
-</p>
+<h3 style="text-align: center">App Updater</h3>
+<p style="text-align: center"><strong><code>@objekt/capacitor-app-updater</code></strong></p>
+<p style="text-align: center">Capacitor plugin to update the web contents of an app from a remote content server.</p>
 
-<p align="center">
-	<img src="https://img.shields.io/maintenance/yes/2022?style=flat-square" />
-	<a href="https://github.com/capacitor-community/http/actions?query=workflow%3A%22Test+and+Build+Plugin%22"><img src="https://img.shields.io/github/workflow/status/capacitor-community/http/Test%20and%20Build%20Plugin?style=flat-square" /></a>
-	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/l/@objekt/capacitor-app-updater?style=flat-square" /></a>
+<p style="text-align: center">
+	<img src="https://img.shields.io/badge/Capacitor%20V3%20Support-yes-green?logo=Capacitor&style=flat-square"/>
+	<img src="https://img.shields.io/maintenance/yes/2022?style=flat-square"/>
+	<a href="https://github.com/capacitor-community/http/actions?query=workflow%3A%22Test+and+Build+Plugin%22"><img src="https://img.shields.io/github/workflow/status/capacitor-community/http/Test%20and%20Build%20Plugin?style=flat-square"/></a>
+	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/l/@objekt/capacitor-app-updater?style=flat-square"/></a>
 	<br>
-	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/dw/@objekt/capacitor-app-updater?style=flat-square" /></a>
-	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/v/@objekt/capacitor-app-updater?style=flat-square" /></a>
+	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/dw/@objekt/capacitor-app-updater?style=flat-square"/></a>
+	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/v/@objekt/capacitor-app-updater?style=flat-square"/></a>
 	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 <a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -24,7 +21,7 @@
 Cross platform CapacitorJS plugin to update the web contents of an app from a remote content server.
 
 ### How it works
-The plugin exposes a single ```AppUpdater.sync(checksumURL, checkDelay=1000*60*60)``` function that takes a URL to your
+The plugin exposes a single ```AppUpdater.sync(checksumURL, checkDelay=3600000)``` function that takes a URL to your
 hosted web server. The plugin expects a ```checksum.json``` file to be accessible on the root of the web server.
 
 When called, the plugin performs the following steps:
@@ -48,8 +45,8 @@ skip syncing if the job ran within the set delay time already. This defaults to 
 ### Running on Web vs Native
 
 Running ```sync``` on non-native environments such as the web is simply ignored. For the web version of your Capaitor
-app a service worker should instead be used to cache your web app files locally. See
-[Workbox](https://developer.chrome.com/docs/workbox/).
+app, a Service Worker (see
+[Workbox](https://developer.chrome.com/docs/workbox/)) should instead be used to cache your web app files locally.
 
 ## Installation
 ```bash
@@ -58,6 +55,7 @@ npm install @objekt/capacitor-app-updater
 
 ## Configuration
 This plugin will work without any configuration all Android and iOS.
+
 ## Usage
 
 ### Step 1 - Basic Implementation (index.js)
@@ -137,8 +135,6 @@ Note: this function triggers a browser reload if the app was updated successfull
 | webServerURL | <code>string</code> |  | The URL of the online web server. |
 | [checkDelay] | <code>number</code> | <code>3600000</code> | The amount of time to allow between update checks. Defaults to 60 minutes. |
 
-
-* * *
 
 ## Contributors ✨
 
