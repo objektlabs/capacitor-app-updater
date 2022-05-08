@@ -1,7 +1,7 @@
 {
 	"name": "@objekt/capacitor-app-updater",
-	"version": "0.0.1",
-	"description": "Cross platform CapacitorJS plugin to update the web contents of an app from a remote content server.",
+	"version": "0.0.2",
+	"description": "CapacitorJS plugin to update the web contents of an app from a remote content server.",
 	"author": "Objekt Labs",
 	"license": "ISC",
 	"homepage": "https://github.com/objektlabs/capacitor-app-updater",
