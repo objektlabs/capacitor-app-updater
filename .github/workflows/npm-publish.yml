@@ -34,7 +34,7 @@ jobs:
       - run: npm run docs
 
       # Update package version number to release tag name.
-      - run: npm version ${{ github.event.release.tag_name }}
+      - run: npm version ${{ github.event.release.tag_name }} --no-git-tag-version
 
       # Publish package to NPM
       - run: npm publish --tag ${{ github.event.release.target_commitish }}
