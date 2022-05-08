@@ -44,8 +44,8 @@ jobs:
         run: |
           git config --global user.name "Publish Bot"
           git config --global user.email "noreply@objektlabs.io"
-          git add -A
+          git add -all
           git commit -m "Version bump"
-          git push origin main
+          git push origin HEAD:main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
