@@ -19,7 +19,7 @@
 	},
 	"scripts": {
 		"docs": "npm run docs:api && npm run docs:contributors",
-		"docs:api": "jsdoc2md --template README.hbs --files src/*.js > README.md",
+		"docs:api": "jsdoc2md --template ./templates/README.hbs --files ./src/*.js > README.md",
 		"docs:contributors": "npx all-contributors generate",
 		"contributors:add": "npx all-contributors add",
 		"test": "echo \"Error: no test specified\" && exit 0"
