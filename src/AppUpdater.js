@@ -30,7 +30,7 @@ import { Http } from '@capacitor-community/http';
  * import { AppUpdater } from '@objekt/capacitor-app-updater';
  * 
  * // Check for app updates on the remote content server.
- * const didUpdate = await AppUpdater.sync("https://your-web-server-url/checksum.json", 1000*60*60); // Only check once every 60 minutes.
+ * const didUpdate = await AppUpdater.sync("https://your-web-server-url", 1000*60*60); // Only check once every 60 minutes.
  * 
  * // Stop processing if there was an update, as the updated would have triggered a page reload.
  * if (didUpdate) {

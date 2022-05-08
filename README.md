@@ -1,8 +1,9 @@
 <p align="center"><br><img src="https://user-images.githubusercontent.com/236501/85893648-1c92e880-b7a8-11ea-926d-95355b8175c7.png" width="128" height="128" /></p>
+
 <h3 align="center">App Updater</h3>
 <p align="center"><strong><code>@objekt/capacitor-app-updater</code></strong></p>
 <p align="center">
-	Cross platform CapacitorJS plugin to update the web contents of an app from a remote content server.
+	CapacitorJS plugin to update the web contents of an app from a remote content server.
 </p>
 
 <p align="center">
@@ -13,24 +14,24 @@
 	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/dw/@objekt/capacitor-app-updater?style=flat-square" /></a>
 	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/v/@objekt/capacitor-app-updater?style=flat-square" /></a>
 	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-	<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
-	<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
 ## Introduction
 Cross platform CapacitorJS plugin to update the web contents of an app from a remote content server.
 
 ### How it works
-The plugin exposes a single ```AppUpdater.sync(checksumURL, checkDelay=1000*60*60)``` function that takes a URL to a ```checksum.json``` file of your hosted web app bundle.
+The plugin exposes a single ```AppUpdater.sync(checksumURL, checkDelay=1000*60*60)``` function that takes a URL to your hosted web server. The plugin expects a ```checksum.json``` file to be accessible on the root of the web server.
 
 When called, the plugin performs the following steps:
 1. Check that the sync process has not already been run recently within a specified time delay.
-2. Load the specified checksum URL
-3. Compares the checksum of the files in the local web content directory with the checksums provided in the ```checksum.json``` file.
+2. Load the ```checksum.json``` file from the web server.
+3. Compare the checksum of the local device web content files with the server checksums.
 4. If nothing has changed, then terminate the job.
 5. If any checkums differ, then create a new bundle on the device.
 6. Download all files with differing checksums fresh from the web server.
-7. Copy all files with the same checksum over from the local web content directory.
+7. Copy all files with the same checksum over from the local device web content directory.
 8. Ensure all file have downloaded successfully.
 9. Modify the local the Capacitor app config to point to the new release bundle.
 10. Reload the app
@@ -113,12 +114,20 @@ TODO - implement DocGen
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome! ([emoji key](https://allcontributors.org/docs/en/emoji-key))
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/jn42lm1"><img src="https://avatars2.githubusercontent.com/u/54233338?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jn42lm1</b></sub></a><br /><a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Documentation">📖</a> <a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Code">💻</a></td>
+  </tr>
+</table>
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## LICENSE
 
