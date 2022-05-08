@@ -54,7 +54,7 @@ npm install @objekt/capacitor-app-updater
 ```
 
 ## Configuration
-This plugin will work without any configuration all Android and iOS.
+This plugin will work without any configuration on Android and iOS in any [Capacitor 3](https://capacitorjs.com/) project.
 
 ## Usage
 
