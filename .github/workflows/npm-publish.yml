@@ -9,39 +9,41 @@ on:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+
     steps:
-      # Setup the build server.
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
 
-      # Configure the automation bot details.
-      - run: git config --global user.name "Publish Bot"
-      - run: git config --global user.email "noreply@objektlabs.io"
+      - name: Install Dependencies 🔗
+        run: npm ci
 
-      # Install package dependencies.
-      - run: npm ci
+      #- name: Build Project 🔧
+      #  run: npm run build
 
-      # Build the package.
-      #- run: npm run build
+      - name: Run Tests 🔥
+        run: npm run test
 
-      # Ensure all tests pass.
-      - run: npm run test
+      - name: Generate Docs 📝
+        run: npm run docs
 
-      # Generate documentation.
-      - run: npm run docs
+      - name: Update Version Number 🔖
+        run: npm version ${{ github.event.release.tag_name }} --no-git-tag-version
 
-      # Update package version number to release tag name.
-      - run: npm version ${{ github.event.release.tag_name }} --no-git-tag-version
-
-      # Publish package to NPM
-      - run: npm publish --tag ${{ github.event.release.target_commitish }}
+      - name: Publish to NPM 🎯
+        run: npm publish --tag ${{ github.event.release.target_commitish }} --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      # Push documentation and version number changes back into repo.
-      - run: git push
+      - name: Commit Changes 🚀
+        run: |
+          git config --global user.name "Publish Bot"
+          git config --global user.email "noreply@objektlabs.io"
+          git add -A
+          git commit -m "Version bump"
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
