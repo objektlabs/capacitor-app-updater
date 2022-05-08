@@ -71,9 +71,8 @@ import { SplashScreen } from '@capacitor/splash-screen';
 
 (async () => {
 
-	// Check for app updates.
-	const didUpdate = await AppUpdater.sync("https://your-web-server-url/checksum.json", 1000*60*60); // Only check once
-	every 60 minutes.
+	// Check for app updates - only if the app has not been launched in the last 60 minutes.
+	const didUpdate = await AppUpdater.sync("https://your-web-server-url/checksum.json", 1000*60*60);
 
 	// Stop processing if there was an update, as the updated would have triggered a page reload.
 	if (didUpdate) {
@@ -95,7 +94,7 @@ contains all of the HTML, CSS, JS, and assets that you would publish to your app
 ### Step 3 - Create a checksum file for the build
 
 Create a ```checksum.json``` file in the build folder that contains a checksum for the build overall as well as each
-individual file in the build.
+individual file in the build. The checksums can be generated using any algorithm.
 ```json
 {
 	"id":"9d307fdcafb3f6f2fbcd47899df78652936cea00",
