@@ -1,0 +1,28 @@
+{
+	"name": "@objekt/capacitor-app-updater",
+	"version": "0.0.1",
+	"description": "Cross platform CapacitorJS plugin to update the web contents of an app from a remote content server.",
+	"author": "Objekt Labs",
+	"license": "ISC",
+	"homepage": "https://github.com/objektlabs/capacitor-app-updater",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/objektlabs/capacitor-app-updater.git"
+	},
+	"bugs": {
+		"url": "https://github.com/objektlabs/capacitor-app-updater/issues"
+	},
+	"type": "module",
+	"main": "index.js",
+	"engines": {
+		"node": "16.x"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"@capacitor-community/http": "^1.4.1",
+		"@capacitor/core": "^3.5.1",
+		"@capacitor/filesystem": "^1.1.0"
+	}
+}
