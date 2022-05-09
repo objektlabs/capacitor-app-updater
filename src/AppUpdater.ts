@@ -5,22 +5,61 @@ import { Http } from '@capacitor-community/http';
 
 /**
  * The checksum of a single file.
- *
- * @typedef {object} ChecksumFile
- *
- * @property {string} path - The relative path to the file in the checksum package.
- * @property {string} hash - The unique file hash based on it's contents.
  */
+declare type ChecksumFile = {
+	
+	/**
+	 * The relative path to the file in the checksum package.
+	 */
+	path: string;
+	
+	/**
+	 * The unique file hash based on it's contents.
+	 */
+	hash: string;
+};
 
 /**
  * The checksum of a package of files.
- *
- * @typedef {object} Checksum
- * 
- * @property {string} id - The unique identifier of the checksum.
- * @property {Date} timestamp - The date the checksum was generated.
- * @property {ChecksumFile[]} files - The package of files.
  */
+declare type Checksum = {
+
+	/**
+	 * The unique identifier of the checksum.
+	 */
+	id: string;
+
+	/**
+	 * The date the checksum was generated.
+	 */
+	timestamp: Date;
+
+	/**
+	 * The package of files.
+	 */
+	files: ChecksumFile[];
+};
+
+/**
+ * The details of a release.
+ */
+declare type Release = {
+
+	/**
+	 * The unique identifier of the release.
+	 */
+	id: string;
+
+	/**
+	 * The date of the release.
+	 */
+	updated: Date;
+
+	/**
+	 * The release checksum.
+	 */
+	checksum: Checksum;
+};
 
 /**
  * CapacitorJS plugin to update the web contents of an app from a remote content server.
@@ -39,7 +78,6 @@ import { Http } from '@capacitor-community/http';
  * 
  * // Load the app shell.
  * // ... e.g. await import('./src/AppShell.js');
- * 
  * ```
  */
 export class AppUpdater {
@@ -54,7 +92,7 @@ export class AppUpdater {
 	 * 
 	 * @returns {boolean} True, if the app was updated, otherwise false.
 	 */
-	static async sync(webServerURL, checkDelay = 1000 * 60 * 60) {
+	static async sync(webServerURL: string, checkDelay: number = 1000 * 60 * 60) {
 
 		// Do not run the sync job on non-native platforms. On Web the service worker will manage caching file instead.
 		if (!Capacitor.isNativePlatform()) {
@@ -94,7 +132,7 @@ export class AppUpdater {
 			// Check that latest release is not already installed.
 			if (activeRelease.checksum.id === checksum.id) {
 
-				// Nothing changed, reset the update check timestamp so that we don't check again unnesasarily.
+				// Nothing changed, reset the update check timestamp so that we don't check again unnecessarily.
 				setCurrentRelease(checksum.id, new Date());
 
 				throw `Latest release already installed (${checksum.id})`;
@@ -105,7 +143,7 @@ export class AppUpdater {
 			await removeDir('releases/next', Directory.Data);
 
 			// Create the empty directory structure for each of the files in the new release package.
-			let paths = [...new Set(checksum.files.map(file => file.path.substring(0, file.path.lastIndexOf('/'))))];
+			let paths = [...new Set(checksum.files.map(file  => file.path.substring(0, file.path.lastIndexOf('/'))))];
 
 			for (const path of paths) {
 				await createDir(`releases/next/${path}`, Directory.Data);
@@ -160,7 +198,7 @@ export class AppUpdater {
 			// Activate the downloaded release.
 			await activateRelease(checksum.id);
 
-			// Report that the app was succefully updated.
+			// Report that the app was successfully updated.
 			return true;
 
 		} catch (error) {
@@ -186,9 +224,9 @@ export class AppUpdater {
  * 
  * @private
  * 
- * @returns {object} The installed release details.
+ * @returns {Promise<Release|null>} The installed release details.
  */
-async function getCurrentRelease() {
+async function getCurrentRelease(): Promise<Release|null> {
 
 	console.debug('AppUpdater: Looking for current release.');
 
@@ -236,9 +274,9 @@ async function getCurrentRelease() {
  * 
  * @throws If the release could not be built from the app bundle.
  * 
- * @returns {object} The built release details.
+ * @returns {Promise<Release>} The built release details.
  */
-async function buildReleaseFromBundle() {
+async function buildReleaseFromBundle(): Promise<Release> {
 
 	console.debug('AppUpdater: Building initial release from app bundle.');
 
@@ -246,7 +284,7 @@ async function buildReleaseFromBundle() {
 
 		// Get the bundled release checksum.
 		const response = await fetch('http://localhost/checksum.json');
-		const checksum = await response.json();
+		const checksum = await response.json() as Checksum;
 
 		// Prepare to download a new release.
 		await createDir('releases', Directory.Data);
@@ -316,7 +354,7 @@ async function buildReleaseFromBundle() {
  * 
  * @returns {void}
  */
-async function setCurrentRelease(releaseName, timestamp = new Date()) {
+async function setCurrentRelease(releaseName: string, timestamp = new Date()) {
 
 	console.debug(`AppUpdater: App configured for release '${releaseName}'.`);
 
@@ -342,7 +380,7 @@ async function setCurrentRelease(releaseName, timestamp = new Date()) {
  * 
  * @returns {void}
  */
-async function deleteOldReleases(activeReleaseName) {
+async function deleteOldReleases(activeReleaseName: string) {
 
 	console.debug('AppUpdater: Deleting old releases.');
 
@@ -378,7 +416,7 @@ async function deleteOldReleases(activeReleaseName) {
  * 
  * @returns {void}
  */
-async function activateRelease(releaseName) {
+async function activateRelease(releaseName: string) {
 
 	console.debug(`AppUpdater: Reloading app to release '${releaseName}'.`);
 
@@ -413,9 +451,9 @@ async function activateRelease(releaseName) {
  * 
  * @param {string} url - The url to the web app.
  * 
- * @returns {Promise<Checksum>} The web app checksum data.
+ * @returns {Promise<Checksum|null>} The web app checksum data.
  */
-async function getServerChecksum(url) {
+async function getServerChecksum(url: string): Promise<Checksum|null> {
 
 	console.debug(`AppUpdater: Getting latest release checksum from '${url}'`);
 
@@ -450,7 +488,7 @@ async function getServerChecksum(url) {
  * 
  * @returns {void}
  */
-async function copyFromPreviousRelease(fromPath, toPath, directory) {
+async function copyFromPreviousRelease(fromPath: string, toPath: string, directory: Directory) {
 
 	console.debug(`AppUpdater: Copy from previous release: '${fromPath}'`);
 
@@ -474,7 +512,7 @@ async function copyFromPreviousRelease(fromPath, toPath, directory) {
  * 
  * @returns {void}
  */
-async function downloadFileFromWebServer(url, path, directory) {
+async function downloadFileFromWebServer(url: string, path: string, directory: Directory) {
 
 	console.debug(`AppUpdater: Download from Server: '${path}'`);
 
@@ -499,7 +537,7 @@ async function downloadFileFromWebServer(url, path, directory) {
  * 
  * @returns {boolean} True if the file cold be downloaded, otherwise false.
  */
-async function downloadFileFromAppBundle(url, path, directory) {
+async function downloadFileFromAppBundle(url: RequestInfo, path: string, directory: Directory) {
 
 	console.debug(`AppUpdater: Download from Bundle: '${path}'`);
 
@@ -542,7 +580,7 @@ async function downloadFileFromAppBundle(url, path, directory) {
 		const response = await fetch(url);
 
 		// Parse the file response into a base64 string that can be sent through the Capacitor bridge.
-		let base64Data = null;
+		let base64Data: string;
 
 		if (path.endsWith('.html')) {
 
@@ -569,7 +607,7 @@ async function downloadFileFromAppBundle(url, path, directory) {
 				const reader = new FileReader();
 				reader.onerror = reject;
 				reader.onload = () => {
-					resolve(reader.result);
+					resolve(reader.result as string);
 				};
 				reader.readAsDataURL(blob);
 			});
@@ -597,7 +635,7 @@ async function downloadFileFromAppBundle(url, path, directory) {
 // -------------------
 
 /**
- * Creates a new direcory, ingoring warnings in case it already exists.
+ * Creates a new directory, ignoring warnings in case it already exists.
  * 
  * @private
  * 
@@ -606,7 +644,7 @@ async function downloadFileFromAppBundle(url, path, directory) {
  * 
  * @returns {void}
  */
-async function createDir(path, directory) {
+async function createDir(path: string, directory: Directory) {
 
 	if (!path) {
 		return;
@@ -628,7 +666,7 @@ async function createDir(path, directory) {
 }
 
 /**
- * Deletes a new direcory, ingoring warnings in case it has already been removed.
+ * Deletes a new directory, ignoring warnings in case it has already been removed.
  * 
  * @private
  * 
@@ -637,7 +675,7 @@ async function createDir(path, directory) {
  * 
  * @returns {void}
  */
-async function removeDir(path, directory) {
+async function removeDir(path: string, directory: Directory) {
 
 	if (!path) {
 		return;

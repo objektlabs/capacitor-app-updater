@@ -29,7 +29,7 @@ When called, the plugin performs the following steps:
 2. Load the ```checksum.json``` file from the web server.
 3. Compare the checksum of the local device web content files with the server checksums.
 4. If nothing has changed, then terminate the job.
-5. If any checkums differ, then create a new bundle on the device.
+5. If any checksums differ, then create a new bundle on the device.
 6. Download all files with differing checksums fresh from the web server.
 7. Copy all files with the same checksum over from the local device web content directory.
 8. Ensure all file have downloaded successfully.
@@ -38,13 +38,13 @@ When called, the plugin performs the following steps:
 
 ### Check Delay
 
-As the sync task may delay your app startup time, you may not want to run it everytime the user launches your app.
+As the sync task may delay your app startup time, you may not want to run it every time the user launches your app.
 Instead you can specify an optional check delay time in milliseconds as second argument to the ```sync``` function to
 skip syncing if the job ran within the set delay time already. This defaults to 60 minutes.
 
 ### Running on Web vs Native
 
-Running ```sync``` on non-native environments such as the web is simply ignored. For the web version of your Capaitor
+Running ```sync``` on non-native environments such as the web is simply ignored. For the web version of your Capacitor
 app, a Service Worker (see
 [Workbox](https://developer.chrome.com/docs/workbox/)) should instead be used to cache your web app files locally.
 
@@ -69,19 +69,19 @@ import { SplashScreen } from '@capacitor/splash-screen';
 
 (async () => {
 
-	// Check for app updates - only if the app has not been launched in the last 60 minutes.
-	const didUpdate = await AppUpdater.sync("https://your-web-server-url/checksum.json", 1000*60*60);
+  // Check for app updates - only if the app has not been launched in the last 60 minutes.
+  const didUpdate = await AppUpdater.sync("https://your-web-server-url/checksum.json", 1000*60*60);
 
-	// Stop processing if there was an update, as the updated would have triggered a page reload.
-	if (didUpdate) {
-		return;
-	}
+  // Stop processing if there was an update, as the updated would have triggered a page reload.
+  if (didUpdate) {
+    return;
+  }
 
-	// Load the app shell.
-	await import('./modules/AppShell.js');
+  // Load the app shell.
+  await import('./modules/AppShell.js');
 
-	// Hide the native splash screen.
-	await SplashScreen.hide();
+  // Hide the native splash screen.
+  await SplashScreen.hide();
 })();
 ```
 ### Step 2 - Build your web application
@@ -95,22 +95,22 @@ Create a ```checksum.json``` file in the build folder that contains a checksum f
 individual file in the build. The checksums can be generated using any algorithm.
 ```json
 {
-	"id":"9d307fdcafb3f6f2fbcd47899df78652936cea00",
-	"timestamp":"2022-04-10T15:21:08.406Z",
-	"files":[
-		{
-			"path":"index.html",
-			"hash":"064c47308009992f133a44e368cf1dcfdaa9d85e"
-		},
-		{
-			"path":"app.39b812d9.js",
-			"hash":"1bd6e3344fbc3363b1faa00d1115378135aac5ce"
-		},
-		{
-			"path":"vendors.70682963.js",
-			"hash":"5b055ca612c8e6883decd76258261d85da3de644"
-		}
-	]
+  "id":"9d307fdcafb3f6f2fbcd47899df78652936cea00",
+  "timestamp":"2022-04-10T15:21:08.406Z",
+  "files":[
+    {
+      "path":"index.html",
+      "hash":"064c47308009992f133a44e368cf1dcfdaa9d85e"
+    },
+    {
+      "path":"app.39b812d9.js",
+      "hash":"1bd6e3344fbc3363b1faa00d1115378135aac5ce"
+    },
+    {
+      "path":"vendors.70682963.js",
+      "hash":"5b055ca612c8e6883decd76258261d85da3de644"
+    }
+  ]
 }
 ```
 
