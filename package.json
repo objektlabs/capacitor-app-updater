@@ -13,16 +13,21 @@
 		"url": "https://github.com/objektlabs/capacitor-app-updater/issues"
 	},
 	"type": "module",
-	"main": "index.js",
+	"main": "dist/esm/AppUpdater.js",
+	"module": "dist/esm/index.js",
+	"types": "dist/esm/index.d.ts",
 	"engines": {
 		"node": "16.x"
 	},
 	"scripts": {
 		"docs": "npm run docs:api && npm run docs:contributors",
-		"docs:api": "jsdoc2md --template ./templates/README.hbs --files ./src/*.js > README.md",
+		"docs:api": "docgen --api AppUpdater --output-readme README.md",
+		"docs:apis": "jsdoc2md --template ./templates/README.hbs --files ./src/*.ts > README.md",
 		"docs:contributors": "npx all-contributors generate",
 		"contributors:add": "npx all-contributors add",
-		"test": "echo \"Error: no test specified\" && exit 0"
+		"build": "tsc",
+		"test": "echo \"Error: no test specified\" && exit 0",
+		"prepublish": "npm run build"
 	},
 	"keywords": [
 		"capacitor",
@@ -35,7 +40,9 @@
 		"@capacitor/filesystem": "^1.1.0"
 	},
 	"devDependencies": {
+		"@capacitor/docgen": "^0.2.0",
 		"all-contributors-cli": "^6.20.0",
-		"jsdoc-to-markdown": "^7.1.1"
+		"jsdoc-to-markdown": "^7.1.1",
+		"typescript": "^4.6.4"
 	}
 }
