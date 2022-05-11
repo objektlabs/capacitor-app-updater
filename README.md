@@ -18,19 +18,12 @@
 </p>
 
 - [Introduction](#introduction)
-  * [How it works](#how-it-works)
-  * [Check Delay](#check-delay)
-  * [Running on Web vs Native](#running-on-web-vs-native)
 - [Installation](#installation)
 - [Configuration](#configuration)
-- [Usage](#usage)
-  * [Step 1 - Basic Implementation (index.js)](#step-1---basic-implementation-indexjs)
-  * [Step 2 - Build your web application](#step-2---build-your-web-application)
-  * [Step 3 - Create a checksum file for the build](#step-3---create-a-checksum-file-for-the-build)
+- [Usage](#usage)(#step-3---create-a-checksum-file-for-the-build)
 - [API Reference](#api-reference)
-  * [AppUpdater](#appupdater)
-- [Contributors ✨](#contributors-%E2%9C%A8)
-- [LICENSE](#license)
+- [Contributors ✨](#contributors-)
+- [License](#license)
 
 ## Introduction
 Cross platform CapacitorJS plugin to update the web contents of an app from a remote content server.
@@ -152,6 +145,6 @@ Contributions of any kind welcome! ([emoji key](https://allcontributors.org/docs
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## LICENSE
+## License
 
 [MIT](LICENSE)
