@@ -21,8 +21,8 @@
 	[<a href="#introduction">Introduction</a>]
 	[<a href="#configuration">Configuration</a>]
 	[<a href="#usage">Usage</a>]
-	[<a href="##api-reference">API Reference</a>]
-	[<a href="#contributors-">Contributors ✨</a>]
+	[<a href="#api-reference">API Reference</a>]
+	[<a href="#contributors-">Contributors</a>]
 	[<a href="#license">License</a>]
 </p>
 
