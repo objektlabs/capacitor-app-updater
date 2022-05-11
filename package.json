@@ -13,8 +13,8 @@
 		"url": "https://github.com/objektlabs/capacitor-app-updater/issues"
 	},
 	"type": "module",
-	"main": "dist/esm/index.js",
-	"types": "dist/esm/index.d.ts",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"engines": {
 		"node": "16.x"
 	},
