@@ -131,7 +131,7 @@ individual file in the build. The checksums can be generated using any algorithm
 
 ## API Reference
 
-Full API documentation [here](https://objektlabs.github.io/capacitor-app-updater/).
+Full API documentation [here](https://objektlabs.github.io/capacitor-app-updater/modules.html).
 
 ## Contributors ✨
 
