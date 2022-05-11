@@ -23,8 +23,8 @@ jobs:
       - name: Install Dependencies 🔗
         run: npm ci
 
-      #- name: Build Project 🔧
-      #  run: npm run build
+      - name: Build Project 🔧
+        run: npm run build
 
       - name: Run Tests 🔥
         run: npm run test
