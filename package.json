@@ -26,7 +26,7 @@
 		"test": "echo \"Error: no test specified\" && exit 0",
 		"lint": "eslint src/**/*.{js,ts}",
 		"docs": "npm run docs:api && npm run docs:contributors",
-		"docs:api": "npx typedoc --plugin none --out docs src/index.ts",
+		"docs:api": "npx typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts",
 		"docs:contributors": "npx all-contributors generate",
 		"contributors:add": "npx all-contributors add",
 		"prepublish": "npm run build"
@@ -48,6 +48,7 @@
 		"eslint": "^8.15.0",
 		"eslint-plugin-tsdoc": "^0.2.16",
 		"typedoc": "^0.22.15",
+		"typedoc-plugin-markdown": "^3.12.1",
 		"typescript": "^4.6.4"
 	}
 }
