@@ -20,7 +20,7 @@
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Configuration](#configuration)
-- [Usage](#usage)(#step-3---create-a-checksum-file-for-the-build)
+- [Usage](#usage)
 - [API Reference](#api-reference)
 - [Contributors ✨](#contributors-)
 - [License](#license)
