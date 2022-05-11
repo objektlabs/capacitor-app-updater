@@ -17,13 +17,14 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
 
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [API Reference](#api-reference)
-- [Contributors ✨](#contributors-)
-- [License](#license)
+<p align="center">
+	[<a href="#introduction">Introduction</a>]
+	[<a href="#configuration">Configuration</a>]
+	[<a href="#usage">Usage</a>]
+	[<a href="##api-reference">API Reference</a>]
+	[<a href="#contributors-">Contributors ✨</a>]
+	[<a href="#license">License</a>]
+</p>
 
 ## Introduction
 Cross platform CapacitorJS plugin to update the web contents of an app from a remote content server.
