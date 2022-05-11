@@ -13,9 +13,24 @@
 	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/dw/@objekt/capacitor-app-updater?style=flat-square"/></a>
 	<a href="https://www.npmjs.com/package/@objekt/capacitor-app-updater"><img src="https://img.shields.io/npm/v/@objekt/capacitor-app-updater?style=flat-square"/></a>
 	<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
+<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-2-orange?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 </p>
+
+- [Introduction](#introduction)
+  * [How it works](#how-it-works)
+  * [Check Delay](#check-delay)
+  * [Running on Web vs Native](#running-on-web-vs-native)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+  * [Step 1 - Basic Implementation (index.js)](#step-1---basic-implementation-indexjs)
+  * [Step 2 - Build your web application](#step-2---build-your-web-application)
+  * [Step 3 - Create a checksum file for the build](#step-3---create-a-checksum-file-for-the-build)
+- [API Reference](#api-reference)
+  * [AppUpdater](#appupdater)
+- [Contributors ✨](#contributors-%E2%9C%A8)
+- [LICENSE](#license)
 
 ## Introduction
 Cross platform CapacitorJS plugin to update the web contents of an app from a remote content server.
@@ -116,25 +131,7 @@ individual file in the build. The checksums can be generated using any algorithm
 
 ## API Reference
 
-### AppUpdater
-CapacitorJS plugin to update the web contents of an app from a remote content server.
-
-**Kind**: global class  
-<a name="AppUpdater.sync"></a>
-
-### AppUpdater.sync(webServerURL, [checkDelay]) ⇒ <code>boolean</code>
-Syncs the online web app to the native app shell.
-
-Note: this function triggers a browser reload if the app was updated successfully to point to the new release.
-
-**Kind**: static method of [<code>AppUpdater</code>](#AppUpdater)  
-**Returns**: <code>boolean</code> - True, if the app was updated, otherwise false.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| webServerURL | <code>string</code> |  | The URL of the online web server. |
-| [checkDelay] | <code>number</code> | <code>3600000</code> | The amount of time to allow between update checks. Defaults to 60 minutes. |
-
+Full API documentation [here](/docs/index.html).
 
 ## Contributors ✨
 
@@ -146,6 +143,7 @@ Contributions of any kind welcome! ([emoji key](https://allcontributors.org/docs
 <table>
   <tr>
     <td align="center"><a href="https://github.com/jn42lm1"><img src="https://avatars2.githubusercontent.com/u/54233338?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jn42lm1</b></sub></a><br /><a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Documentation">📖</a> <a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/souserig"><img src="https://avatars.githubusercontent.com/u/12587307?v=4?s=100" width="100px;" alt=""/><br /><sub><b>DieSkim</b></sub></a><br /><a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=souserig" title="Code">💻</a></td>
   </tr>
 </table>
 
