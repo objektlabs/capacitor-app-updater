@@ -13,20 +13,22 @@
 		"url": "https://github.com/objektlabs/capacitor-app-updater/issues"
 	},
 	"type": "module",
-	"main": "dist/esm/AppUpdater.js",
-	"module": "dist/esm/index.js",
+	"main": "dist/esm/index.js",
 	"types": "dist/esm/index.d.ts",
 	"engines": {
 		"node": "16.x"
 	},
+	"files": [
+		"dist"
+	],
 	"scripts": {
-		"docs": "npm run docs:api && npm run docs:contributors",
-		"docs:api": "docgen --api AppUpdater --output-readme README.md",
-		"docs:apis": "jsdoc2md --template ./templates/README.hbs --files ./src/*.ts > README.md",
-		"docs:contributors": "npx all-contributors generate",
-		"contributors:add": "npx all-contributors add",
 		"build": "tsc",
 		"test": "echo \"Error: no test specified\" && exit 0",
+		"lint": "eslint src/**/*.{js,ts}",
+		"docs": "npm run docs:api && npm run docs:contributors",
+		"docs:api": "npx typedoc --plugin none --out docs src/index.ts",
+		"docs:contributors": "npx all-contributors generate",
+		"contributors:add": "npx all-contributors add",
 		"prepublish": "npm run build"
 	},
 	"keywords": [
@@ -40,9 +42,12 @@
 		"@capacitor/filesystem": "^1.1.0"
 	},
 	"devDependencies": {
-		"@capacitor/docgen": "^0.2.0",
+		"@typescript-eslint/eslint-plugin": "^5.23.0",
+		"@typescript-eslint/parser": "^5.23.0",
 		"all-contributors-cli": "^6.20.0",
-		"jsdoc-to-markdown": "^7.1.1",
+		"eslint": "^8.15.0",
+		"eslint-plugin-tsdoc": "^0.2.16",
+		"typedoc": "^0.22.15",
 		"typescript": "^4.6.4"
 	}
 }
