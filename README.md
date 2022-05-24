@@ -69,7 +69,7 @@ This plugin will work without any configuration on Android and iOS in any [Capac
 
 ### Step 1 - Basic Implementation (index.js)
 
-Call ```AppUpdater.sync``` in your  capacitor web app root, e.g. your index.js file as follows
+Call ```AppUpdater.sync``` in your capacitor web app root, e.g. your index.js file as follows:
 
 ```js
 import { AppUpdater } from '@objekt/capacitor-app-updater';
@@ -136,8 +136,8 @@ Contributions of any kind welcome! ([emoji key](https://allcontributors.org/docs
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/jn42lm1"><img src="https://avatars2.githubusercontent.com/u/54233338?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jn42lm1</b></sub></a><br /><a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Documentation">📖</a> <a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/souserig"><img src="https://avatars.githubusercontent.com/u/12587307?v=4?s=100" width="100px;" alt=""/><br /><sub><b>DieSkim</b></sub></a><br /><a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=souserig" title="Code">💻</a> <a href="https://github.com/objektlabs/capacitor-app-updater/pulls?q=is%3Apr+reviewed-by%3Asouserig" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/jn42lm1"><img src="https://avatars2.githubusercontent.com/u/54233338?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jn42lm1</b></sub></a><br /><a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Code">💻</a> <a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=jn42lm1" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/legehwahn"><img src="https://avatars.githubusercontent.com/u/105986830?v=4?s=100" width="100px;" alt=""/><br /><sub><b>legehwahn</b></sub></a><br /><a href="https://github.com/objektlabs/capacitor-app-updater/commits?author=legehwahn" title="Code">💻</a> <a href="https://github.com/objektlabs/capacitor-app-updater/pulls?q=is%3Apr+reviewed-by%3Alegehwahn" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
