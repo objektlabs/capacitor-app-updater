@@ -1,6 +1,6 @@
 {
 	"name": "@objekt/capacitor-app-updater",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "CapacitorJS plugin to update the web contents of an app from a remote content server.",
 	"author": "Objekt Labs",
 	"license": "MIT",
