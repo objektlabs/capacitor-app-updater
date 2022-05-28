@@ -1,4 +1,4 @@
-import { AppUpdater } from './AppUpdater';
+import { AppUpdater } from './AppUpdater.js';
 
 export {
 	AppUpdater as default,
