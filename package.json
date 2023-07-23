@@ -16,7 +16,7 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"engines": {
-		"node": "16.x"
+		"node": "18.x"
 	},
 	"files": [
 		"dist"
@@ -38,16 +38,16 @@
 	],
 	"dependencies": {
 		"@capacitor-community/http": "^1.4.1",
-		"@capacitor/core": "^3.5.1",
-		"@capacitor/filesystem": "^1.1.0"
+		"@capacitor/core": "^5.2.2",
+		"@capacitor/filesystem": "^5.1.1"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.23.0",
-		"@typescript-eslint/parser": "^5.23.0",
-		"all-contributors-cli": "^6.20.0",
-		"eslint": "^8.15.0",
-		"eslint-plugin-tsdoc": "^0.2.16",
-		"typedoc": "^0.22.15",
-		"typescript": "^4.6.4"
+		"@typescript-eslint/eslint-plugin": "^6.1.0",
+		"@typescript-eslint/parser": "^6.1.0",
+		"all-contributors-cli": "^6.26.1",
+		"eslint": "^8.45.0",
+		"eslint-plugin-tsdoc": "^0.2.17",
+		"typedoc": "^0.24.8",
+		"typescript": "^5.1.6"
 	}
 }

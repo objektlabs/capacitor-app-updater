@@ -136,7 +136,7 @@ export const AppUpdater = {
 			}
 
 			// Download the new release files from the web server.
-			const downloadTasks = [];
+			const downloadTasks: Promise<any>[] = [];
 
 			for (const file of checksum.files) {
 
@@ -369,7 +369,7 @@ async function deleteOldReleases(activeReleaseName: string): Promise<void> {
 
 		for (const oldReleaseName of installedReleases) {
 
-			if (oldReleaseName !== activeReleaseName) {
+			if (oldReleaseName.name !== activeReleaseName) {
 
 				await Filesystem.rmdir({
 					path: `releases/${oldReleaseName}`,
